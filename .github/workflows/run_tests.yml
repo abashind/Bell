@@ -31,4 +31,8 @@ jobs:
     - name: Test with pytest
       run: |
         conda install pytest
-        pytest
+        pytest --junit-xml pytest.xml
+    - name: Publish Unit Test Results
+      uses: EnricoMi/publish-unit-test-result-action@v1
+      with:
+        files: pytest.xml

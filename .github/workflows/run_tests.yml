@@ -33,6 +33,7 @@ jobs:
         conda install pytest
         pytest --junit-xml pytest.xml
     - name: Publish Unit Test Results
+      if: always()
       uses: EnricoMi/publish-unit-test-result-action@v1
       with:
         files: pytest.xml
